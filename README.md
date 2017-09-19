@@ -1,2 +1,4 @@
-# hello-world
-My first github repository
+# Springboard Coursework
+
+This will be used for Springboard Data Science projects
+
