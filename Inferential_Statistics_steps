@@ -1,0 +1,7 @@
+EDA steps
+•	Computed and plotted ECDF (Empirical cumulative distribution function) of defaults by credit limit.
+•	Tested whether defaults by credit limit is normally distributed by using hacker statistics.
+•	Find out defaults by credit limit is not normally distributed.
+•	Plotted a scatter to find out a correlation between historical billing amounts versus the historical payment amounts.
+•	Computed Pearson correlation coefficient between payment and billing amounts.
+•	Updated my data story graphs and notes
