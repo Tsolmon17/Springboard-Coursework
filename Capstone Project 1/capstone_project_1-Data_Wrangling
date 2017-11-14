@@ -1,0 +1,49 @@
+1.	I renamed my file so that it doesn’t have spaces
+2.	Saved as CSV file
+3.	Imported packages: pandas, matplotlib.pyplot, numpy
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+4.	Imported my data with two header rows and set first column as my index column
+
+data = 'default_of_credit_card_clients.csv'
+df = pd.read_csv(data, index_col=0, header=[0,1])
+
+5.	Visual inspection: 
+
+df.head()
+df.tail()
+df.columns
+df.shape
+df.describe
+
+Note: data set looks pretty clean and there seems to no values missing;
+all data types are int64;
+there are categorical variables and ordinal variables that needs to have appropriate data types;
+ also, there two header rows with first being X numbered and second row with column names
+
+6.	Dropping one of the header rows
+
+df.columns = df.columns.droplevel(0)
+
+7.	Further inspection of columns with .value_counts() to spot any outliers or errors
+
+8.	‘EDUCATION’ column supposed to have values from 1 thru 4 (1 = graduate school; 2 = university; 3 = high school; 4 = others) but have values from 0 thru 6. This represents a very very small fraction of the overall data (345 of 30,000) so I decided to replace them with 4 = others category. 
+
+df.EDUCATION.value_counts()
+
+2    14030
+1    10585
+3     4917
+5      280
+4      123
+6       51
+0       14
+Name: EDUCATION, dtype: int64
+
+9.	Column ‘MARRIAGE’ supposed to have numbers from 1 thru 3 for Marital status (1 = married; 2 = single; 3 = others). It’s showing extra variable 0 for 54 rows which is insignificant. I will change 0 variables 3 = others. 
+
+10.	Changing data types of columns with categorical values (gender, education, marriage status)
+11.	After further exploring columns 6-11 which correspond to payment status: -1 = pay duly; 1 = payment delay for one month; 2 = payment delay for two months; . . .; 8 = payment delay for eight months; 9 = payment delay for nine months and above. I found there undefined variables 0 and -2. 
